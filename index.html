@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Toko JB Akun Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- LOADING SCREEN -->
+    <div id="loadingScreen">
+        <div class="loader"></div>
+        <p class="loading-text">⏳ Loading Toko JB..</p>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">📢</span>
+                <span class="logo-text">JB<span class="neon">Store</span></span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Beranda</a></li>
+                <li><a href="#products" class="nav-link">Produk</a></li>
+                <li><a href="#categories" class="nav-link">Kategori</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+                <li><a href="#" class="nav-link admin-link" id="adminNav"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-bg-anim"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Toko JB <span class="neon">Akun Game</span> Terpercaya</h1>
+            <p class="hero-sub">Menjual berbagai akun game berkualitas dengan harga terbaik.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Lihat Produk</a>
+                <a href="https://whatsapp.com/channel/0029VbBmRhuEquiQOAjLHF0D" target="_blank" class="btn btn-wa">Saluran WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-scroll">⬇ Scroll</div>
+    </section>
+
+    <!-- KATEGORI -->
+    <section id="categories" class="section categories">
+        <div class="container">
+            <h2 class="section-title">🎯 Kategori Game</h2>
+            <div class="category-grid" id="categoryGrid"></div>
+        </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="products" class="section products">
+        <div class="container">
+            <h2 class="section-title">🛒 Semua Produk</h2>
+            <div class="product-toolbar">
+                <input type="text" id="searchInput" placeholder="🔍 Cari akun, game, rank..." class="search-input" />
+                <div class="filter-group">
+                    <select id="filterSort" class="filter-select">
+                        <option value="default">Urutkan</option>
+                        <option value="price-asc">Harga Termurah</option>
+                        <option value="price-desc">Harga Termahal</option>
+                        <option value="ready">Ready</option>
+                        <option value="sold">Sold Out</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">⭐ Testimoni</h2>
+            <div class="testimonial-slider" id="testimonialSlider"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <h2 class="section-title">❓ FAQ</h2>
+            <div class="faq-container" id="faqContainer"></div>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">📬 Kontak Kami</h2>
+            <div class="contact-grid">
+                <a href="https://wa.me/628567220710" target="_blank" class="contact-card wa">💬 WhatsApp</a>
+                <a href="#" target="_blank" class="contact-card ig">📸 Instagram</a>
+                <a href="#" target="_blank" class="contact-card tt">🎵 TikTok</a>
+                <a href="mailto:OwnerJKG@gmail.com" class="contact-card em">📧 Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <strong>JB Store</strong> — Toko Akun Game Terpercaya</p>
+            <p class="footer-credit">Dibuat dengan Dimzy &amp; Owner</p>
+        </div>
+    </footer>
+
+    <!-- MODAL KONFIRMASI -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <h3 id="modalTitle">Konfirmasi</h3>
+            <p id="modalMessage">Yakin ingin menghapus?</p>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="modalCancel">Batal</button>
+                <button class="btn btn-danger" id="modalConfirm">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toastContainer"></div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div class="modal-overlay" id="adminLoginModal">
+        <div class="modal-box admin-login-box">
+            <h2>🔐 Login Admin</h2>
+            <input type="text" id="adminUsername" placeholder="Username" class="form-input" />
+            <input type="password" id="adminPassword" placeholder="Password" class="form-input" />
+            <button class="btn btn-primary" id="adminLoginBtn">Login</button>
+            <button class="btn btn-secondary" id="adminLoginClose">Tutup</button>
+        </div>
+    </div>
+
+    <!-- DASHBOARD ADMIN -->
+    <div id="adminDashboard" style="display:none;">
+        <div class="admin-container">
+            <div class="admin-sidebar">
+                <h3>⚙️ Admin Panel</h3>
+                <button class="admin-menu-btn active" data-tab="dashboard">📊 Dashboard</button>
+                <button class="admin-menu-btn" data-tab="products">📦 Kelola Produk</button>
+                <button class="admin-menu-btn" data-tab="add">➕ Tambah Produk</button>
+                <button class="admin-menu-btn" data-tab="whatsapp">📱 Pengaturan WA</button>
+                <button class="admin-menu-btn" id="adminLogoutBtn">🚪 Logout</button>
+            </div>
+            <div class="admin-content">
+                <div id="adminDashboardContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
